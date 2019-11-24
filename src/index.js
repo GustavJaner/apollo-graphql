@@ -1,8 +1,14 @@
 const { ApolloServer, gql } = require('apollo-server');
-const typeDefs = require('./schema');
-const resolvers = require('./resolvers');
 const mongoDB = require('./db/config');
+const typeDefs = require('./schema');
+const Query = require('./resolvers/Query');
+const Mutation = require('./resolvers/Mutation');
 
+
+const resolvers = {
+  Query,
+  Mutation,
+};
 
 const dataSources = () => ({
   mongoDB,

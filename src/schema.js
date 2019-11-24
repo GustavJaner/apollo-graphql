@@ -1,14 +1,17 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  # The  special Query type lists all available Queries and what they return.
-  # Of the type that is returned, the specific Fields of that type are specified
-  type Query {
-    books: [Book]
+  type Query {    # The  special Query type lists all available Queries and what they return.
+    hello: String # Of the type that is returned, the specific Fields of that type are specified
+    books: [Book!]!
   }
 
-  # the Book type defines queryable *fields* (title, author) for a book
-  type Book {
+  type Mutation {
+    addBook(title: String!, author: String!): Book
+  }
+
+  type Book { # the Book type defines queryable *fields* (title, author) for a book
+    id: ID!
     title: String
     author: String
   }

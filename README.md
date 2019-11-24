@@ -1,1 +1,1 @@
-# apollo-graphql
+# Apollo GraphQL Server
